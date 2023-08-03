@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -59,7 +60,7 @@ Route::get('/createaccount', function () {
 
 //shipping
 Route::get('/shipping', function () {
-    return view('shipping.Index');
+    return view('shipping.Index');  
 });
 Route::get('/createshipping', function () {
     return view('shipping.Create');
@@ -80,6 +81,10 @@ Route::get('/taxes', function () {
 Route::get('/createtax', function () {
     return view('tax.Create');
 });
+
+
+//media
+Route::resource('/media', MediaController::class);
 
 
 // Route::get('dashboard', [UserController::class, 'dashboard']);
