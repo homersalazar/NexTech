@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -40,15 +41,6 @@ Route::get('/createproduct', function () {
     return view('product.Create');
 });
 
-//category
-Route::get('/category', function () {
-    return view('category.Index');
-});
-Route::get('/createcategory', function () {
-    return view('category.Create');
-});
-
-
 //account
 Route::get('/account', function () {
     return view('account.Index');
@@ -82,6 +74,9 @@ Route::get('/createtax', function () {
     return view('tax.Create');
 });
 
+
+//media
+Route::resource('/category', CategoryController::class);
 
 //media
 Route::resource('/media', MediaController::class);
