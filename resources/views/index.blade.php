@@ -1,6 +1,6 @@
 @extends('partials.Header')
 
 @section('content')
-@include('partials.Navbar')
+    @include('partials.Navbar')
 
 @endsection

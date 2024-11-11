@@ -20,15 +20,15 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard.Index');
+Route::prefix('/dashboard')->group(function () {
+    Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
 });
-
 
 //order
 Route::get('/order', function () {
     return view('order.Index');
 });
+
 Route::get('/createorder', function () {
     return view('order.Create');
 });
@@ -52,7 +52,7 @@ Route::get('/createaccount', function () {
 
 //shipping
 Route::get('/shipping', function () {
-    return view('shipping.Index');  
+    return view('shipping.Index');
 });
 Route::get('/createshipping', function () {
     return view('shipping.Create');
